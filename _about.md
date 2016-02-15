@@ -1,16 +1,29 @@
-### Student name (e.g. Ian McLoughlin)
-#### Student number (e.g. G00123456)
+### Student name (Andrew Sweeney)
+#### Student number (G00237144)
 
 # Countdown Letters Game Solver
 Insert introduction here.
 This gist is just an example of how you might layout your submission.
 Please change it to suit your needs.
 
+# Contents
+
+* Project Plan
+* Background
+* Words List
+* Python Script
+* Preprocessing
+* Efficiency
+* Results
+* Summary/Reflection
+
+## Project Plan
+
 ## Background
 The first task I completed as part of this project was to Google "countdown letters game solver".
 Google gave me two relevant results on the first page, these are [Cool Project name][2] and [Cool Solver][3].
 
-## Words list
+## Words List
 My words list is in the file [wordslist.txt](wordslist.txt) in this repoistory/gist.
 I got my words list from the [Oxford Learner's Dictionaries][1] website.
 
@@ -41,6 +54,7 @@ Here's some stuff about how efficient my code is, including an analysis of how m
 ## Results
 My script runs very quickly, and certainly within the 30 seconds allowed in the Coutdown letters game.
 
+## Summary/Reflection
 
 ## References
 [1]: http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/
