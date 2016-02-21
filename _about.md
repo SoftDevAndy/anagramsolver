@@ -28,20 +28,23 @@ Add to your Python script a function to test your algorithm, which creates a ran
 * Efficiency
 * Results
 * Summary/Reflection
+* References
 
 ## Project Plan
 
 **Starting Phase**
 
 * ~~Outline requirements to be met~~
-* Find existing examples
-* Research algorithms 
+* Research algorithms / Find existing examples
 * Create/Curate word dictionary file
 
 **Execute Phase**
 
 * Import words
-* Update this....
+* Rough draft of algorithm
+* Fine tuned algorithm
+* Alternatives
+* More to come...
 
 **Summary Phase**
 
@@ -49,6 +52,10 @@ Add to your Python script a function to test your algorithm, which creates a ran
 * Write up findings
 
 ## Words List
+
+The first source for creating the dictionary was from from [Oxford 3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/). I grabbed all of the words but some of them were too long or too short, contained whitespace, numbers and special characters. Most dictionaries will contain some of those things, at least in the case with special characters in words like apostrophies. Seeing the project was in Python I created a small script for creating clean dictionary file from a text file of words [Dictionary Cleaner](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9).
+
+More to come...
 
 ## Python script
 
@@ -61,6 +68,14 @@ Add to your Python script a function to test your algorithm, which creates a ran
 ## Summary/Reflection
 
 ## References
+
+### Dictionary Sources
+
 [1]: http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/
-[2]: http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/
-[3]: http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/
+
+### Read Sources
+
+[1]: http://stackoverflow.com/questions/4240080/generating-all-permutations-of-a-given-string
+[2]: https://sites.google.com/site/learnjav/java/recursion
+[3]: https://sites.google.com/site/learnjav/java/recursion/Anagrams.java?attredirects=0
+[4]:
