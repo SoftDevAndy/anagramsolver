@@ -52,7 +52,7 @@ Add to your Python script a function to test your algorithm, which creates a ran
 
 ## Words List
 
-The first source for creating the dictionary was from from [Oxford 3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/). I grabbed all of the words but some of them were too long or too short, contained whitespace, numbers and special characters. Most dictionaries will contain some of those things, at least in the case with special characters in words like apostrophies. Seeing the project was in Python I created a small script for creating clean dictionary file from a text file of words [Dictionary Cleaner](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9).
+The first source for creating the dictionary was from from [Oxford 3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/). I grabbed all of the words but some of them were too long or too short, contained whitespace, numbers and special characters. Most dictionaries will contain some of those things, at least in the case with special characters in words like apostrophies. Seeing the project was in Python I __created a small script__ for creating clean dictionary file from a text file of words [Dictionary Cleaner](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9).
 
 More to come...
 
