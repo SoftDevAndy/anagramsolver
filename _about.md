@@ -1,4 +1,4 @@
-### Student name (Andrew Sweeney) - Student number (G00237144)
+### Andrew Sweeney - G00237144
 
 # Countdown Letters Game Solver
 
