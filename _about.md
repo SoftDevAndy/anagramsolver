@@ -72,6 +72,7 @@ More to come...
 
 * [Oxford3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/)
 * [Theory of Algorithms in class wordlist](http://puu.sh/nfyIh/c25f4097de.txt)
+* [Second year dictionary](http://puu.sh/nfzcu/a8cb82715c.txt)
 
 **Read Sources**
 
