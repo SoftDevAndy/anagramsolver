@@ -71,10 +71,10 @@ More to come...
 
 ### Dictionary Sources
 
-[1]: http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/
+[oxford3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/)
 
 ### Read Sources
 
-[1]: http://stackoverflow.com/questions/4240080/generating-all-permutations-of-a-given-string
-[2]: https://sites.google.com/site/learnjav/java/recursion
-[3]: https://sites.google.com/site/learnjav/java/recursion/Anagrams.java?attredirects=0
+[Stackoverflow Generating Algorithms Permutations]: http://stackoverflow.com/questions/4240080/generating-all-permutations-of-a-given-string
+[Java recursion example]: https://sites.google.com/site/learnjav/java/recursion
+[Java recursion algorithm]: https://sites.google.com/site/learnjav/java/recursion/Anagrams.java?attredirects=0
