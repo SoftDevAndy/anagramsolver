@@ -70,7 +70,7 @@ More to come...
 
 ### Dictionary Sources
 
-[Oxford3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/)
+* [Oxford3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/)
 
 ### Read Sources
 
