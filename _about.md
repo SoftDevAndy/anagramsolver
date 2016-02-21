@@ -68,11 +68,11 @@ More to come...
 
 ## References
 
-### Dictionary Sources
+**Dictionary Sources**
 
 * [Oxford3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/)
 
-### Read Sources
+**Read Sources**
 
 * [Stackoverflow Generating Algorithms Permutations](http://stackoverflow.com/questions/4240080/generating-all-permutations-of-a-given-string)
 * [Java recursion example](https://sites.google.com/site/learnjav/java/recursion)
