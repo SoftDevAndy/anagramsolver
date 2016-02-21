@@ -80,3 +80,4 @@ More to come...
 * [Java recursion algorithm](https://sites.google.com/site/learnjav/java/recursion/Anagrams.java?attredirects=0) 
 * [Permutations ProgrammerInterview](http://www.programmerinterview.com/index.php/recursion/permutations-of-a-string/)
 * [Permutations Princeston Java](http://introcs.cs.princeton.edu/java/23recursion/Permutations.java.html)
+* [GeeksforGeeks](http://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/)
