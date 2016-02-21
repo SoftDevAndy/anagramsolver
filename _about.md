@@ -71,6 +71,7 @@ More to come...
 **Dictionary Sources**
 
 * [Oxford3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/)
+* [Theory of Algorithms in class wordlist](http://puu.sh/nfyIh/c25f4097de.txt)
 
 **Read Sources**
 
