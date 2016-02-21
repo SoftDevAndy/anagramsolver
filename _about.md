@@ -22,7 +22,6 @@ Add to your Python script a function to test your algorithm, which creates a ran
 # Contents
 
 * Project Plan
-* Background
 * Words List
 * Python Script
 * Preprocessing
@@ -34,10 +33,10 @@ Add to your Python script a function to test your algorithm, which creates a ran
 
 **Starting Phase**
 
+* ~~Outline requirements to be met~~
 * Find existing examples
-* Research algorithms and 
+* Research algorithms 
 * Create/Curate word dictionary file
-* Outline requirements to be met
 
 **Execute Phase**
 
@@ -48,8 +47,6 @@ Add to your Python script a function to test your algorithm, which creates a ran
 
 * Time functions and find the best results
 * Write up findings
-
-## Background
 
 ## Words List
 
