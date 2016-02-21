@@ -77,6 +77,6 @@ More to come...
 * [Stackoverflow Generating Algorithms Permutations](http://stackoverflow.com/questions/4240080/generating-all-permutations-of-a-given-string)
 * [Stackoverflow all given permutations of a string](http://stackoverflow.com/questions/361/generate-list-of-all-possible-permutations-of-a-string)
 * [Java recursion example](https://sites.google.com/site/learnjav/java/recursion)
-* [Java recursion algorithm](https://sites.google.com/site/learnjav/java/recursion/Anagrams.java?attredirects=0)* 
+* [Java recursion algorithm](https://sites.google.com/site/learnjav/java/recursion/Anagrams.java?attredirects=0) 
 * [Permutations ProgrammerInterview](http://www.programmerinterview.com/index.php/recursion/permutations-of-a-string/)
 * [Permutations Princeston Java](http://introcs.cs.princeton.edu/java/23recursion/Permutations.java.html)
