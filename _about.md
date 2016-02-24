@@ -68,6 +68,10 @@ More to come...
 
 ## References
 
+**Extra Scripts created specifically for this project**
+*[names.py](https://gist.github.com/AndyDev2013/d76cdaa3ccda9cc63194)
+*[dictionaryCleaner.py](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9)
+
 **Dictionary Sources**
 
 * [Oxford3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/)
