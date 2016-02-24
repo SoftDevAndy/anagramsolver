@@ -74,6 +74,13 @@ More to come...
 * [Theory of Algorithms in class wordlist](http://puu.sh/nfyIh/c25f4097de.txt)
 * [Second year dictionary](http://puu.sh/nfzcu/a8cb82715c.txt)
 
+**Proper Noun sources**
+
+* [Capitals and Countries](https://www.countries-ofthe-world.com/capitals-of-the-world.html)
+* [Common Male Names](http://deron.meranda.us/data/census-dist-male-first.txt)
+* [Common Female Names](http://deron.meranda.us/data/census-dist-female-first.txt)
+* [Months,Days,Seasons](http://www.vocabulary.cl/Basic/Days_Months_Seasons.htm)
+
 **Read Sources**
 
 * [Stackoverflow Generating Algorithms Permutations](http://stackoverflow.com/questions/4240080/generating-all-permutations-of-a-given-string)
