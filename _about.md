@@ -52,9 +52,21 @@ Add to your Python script a function to test your algorithm, which creates a ran
 
 ## Words List
 
-The first source for creating the dictionary was from from [Oxford 3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/). I grabbed all of the words but some of them were too long or too short, contained whitespace, numbers and special characters. Most dictionaries will contain some of those things, at least in the case with special characters in words like apostrophies. Seeing the project was in Python I __created a small script__ for creating clean dictionary file from a text file of words [Dictionary Cleaner](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9).
+The creation of the word list involves meeting some criteria. All of the words must not contain whitespace,special characters,number etc. They also must me uppercase to make things a bit easier for my own parsing and also must not contain proper nouns.
 
-More to come...
+From sources listed below I built up a large dictionary full of words with special characters,numbers and plenty of other stuff to be filtered out. Reading through it, it contained quite alot of names aswell so I took this issue into account.
+
+Next I gather proper nouns from the sources below and combined them all together to make a file that would be used to filter out proper nouns from the dictionary that was to be built. This involved Days of the week,months,countries and capitals. 
+
+Knowing from before there was names included in the dictionary I found two sources for common male and female names, the format wasn't strictly line for line, name for name, there was statistics and other figures included so these had to be filtered out.
+
+**How the dictionary was built**
+
+* Combined multiple dictionaries from sources
+* Created a list of proper nouns from sources
+* Created a list of male and female names, formatted them using a [using this script](https://gist.github.com/AndyDev2013/d76cdaa3ccda9cc63194) that I made then combined this clean list of names with the existing proper nouns file
+* Took imported the raw dictionary and combined proper nouns file and filted our the nouns into a cleaner dictionary [using this script](https://gist.github.com/AndyDev2013/d0e7b1672688a8abe26e) that I made
+* Finally the cleaner dictionary is put through [this script](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9) that I made to drop all words with special characters, larger then a conundrum etc
 
 ## Python script
 
@@ -71,8 +83,8 @@ More to come...
 **Extra Scripts created specifically for this project**
 
 * [names.py](https://gist.github.com/AndyDev2013/d76cdaa3ccda9cc63194)
-* [dictionaryCleaner.py](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9)
 * [removenoun.py](https://gist.github.com/AndyDev2013/d0e7b1672688a8abe26e)
+* [dictionaryCleaner.py](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9)
 
 **Dictionary Sources**
 
