@@ -60,7 +60,7 @@ Next I gather proper nouns from the sources below and combined them all together
 
 Knowing from before there was names included in the dictionary I found two sources for common male and female names, the format wasn't strictly line for line, name for name, there was statistics and other figures included so these had to be filtered out.
 
-**How the dictionary was built**
+**How the wordlist.txt was built**
 
 * Combined multiple dictionaries from sources
 * Created a list of proper nouns from sources
