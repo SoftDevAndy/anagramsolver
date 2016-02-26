@@ -37,7 +37,7 @@ Add to your Python script a function to test your algorithm, which creates a ran
 * ~~Research algorithms / Find existing examples~~
 * ~~Create/Curate word dictionary file~~
 * ~~Import words~~
-* 
+
 **Execute Phase**
 
 * Rough draft of algorithm
@@ -73,6 +73,8 @@ The wordlist even at around 1mb takes a lot of time to render as a gist in Chrom
 
 The final word file holds roughly **110k** at just under **1mb** words less then 9 letters with an attempt to remove as much proper nouns as possibly. 
 
+[The wordlist/dictionary file](https://dl.dropboxusercontent.com/u/75064039/wordfile.txt)
+
 ## Python script
 
 ## Preprocessing
@@ -82,6 +84,11 @@ The final word file holds roughly **110k** at just under **1mb** words less then
 ## Results
 
 ## Summary/Reflection
+
+Update this later...
+
+Gists near 1mb slow down the browser so it was easier to have the dictionary as an external link
+Python was very handy for quick string manipulation and webscraping when building the textfile
 
 ## References
 
