@@ -36,10 +36,10 @@ Add to your Python script a function to test your algorithm, which creates a ran
 * ~~Outline requirements to be met~~
 * ~~Research algorithms / Find existing examples~~
 * ~~Create/Curate word dictionary file~~
-
+* ~~Import words~~
+* 
 **Execute Phase**
 
-* Import words
 * Rough draft of algorithm
 * Fine tuned algorithm
 * Alternatives
@@ -87,10 +87,10 @@ The final word file holds roughly **110k** at just under **1mb** words less then
 
 **Extra Scripts created specifically for this project**
 
+* [scraper.py](https://gist.github.com/AndyDev2013/fe94b562fef4dd14ba03)
 * [names.py](https://gist.github.com/AndyDev2013/d76cdaa3ccda9cc63194)
 * [removenoun.py](https://gist.github.com/AndyDev2013/d0e7b1672688a8abe26e)
 * [dictionaryCleaner.py](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9)
-* [scraper.py](https://gist.github.com/AndyDev2013/fe94b562fef4dd14ba03)
 
 **Dictionary Sources**
 
