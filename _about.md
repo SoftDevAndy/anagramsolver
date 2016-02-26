@@ -70,7 +70,7 @@ Knowing from before there was names included in the dictionary I found two sourc
 
 The wordlist even at around 1mb takes a lot of time to render as a gist in Chrome and IE so I attached it externally as a dropbox link. The other thing I would like to say about the dictionary is that there was an attempt to remove proper nouns but 100% of them won't be removed but the majority of names and the obvious ones will have been removed using the scripts above.
 
-The final word file holds roughly **110k** words less then 9 letters with an attempt to remove as much proper nouns as possibly. 
+The final word file holds roughly **110k** at just under **1mb** words less then 9 letters with an attempt to remove as much proper nouns as possibly. 
 
 ## Python script
 
