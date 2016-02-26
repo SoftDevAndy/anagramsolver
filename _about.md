@@ -62,7 +62,8 @@ Knowing from before there was names included in the dictionary I found two sourc
 
 **How the wordlist.txt was built**
 
-* Combined multiple dictionaries from sources
+* Created a webscraper to download 3000ish commond oxford words [using this script](https://gist.github.com/AndyDev2013/fe94b562fef4dd14ba03) that I made 
+* Combined multiple dictionaries from sources including the oxford3000 source
 * Created a list of proper nouns from sources
 * Created a list of male and female names, formatted them using a [using this script](https://gist.github.com/AndyDev2013/d76cdaa3ccda9cc63194) that I made then combined this clean list of names with the existing proper nouns file
 * Took imported the raw dictionary and combined proper nouns file and filted our the nouns into a cleaner dictionary [using this script](https://gist.github.com/AndyDev2013/d0e7b1672688a8abe26e) that I made
@@ -71,8 +72,6 @@ Knowing from before there was names included in the dictionary I found two sourc
 The wordlist even at around 1mb takes a lot of time to render as a gist in Chrome and IE so I attached it externally as a dropbox link. The other thing I would like to say about the dictionary is that there was an attempt to remove proper nouns but 100% of them won't be removed but the majority of names and the obvious ones will have been removed using the scripts above.
 
 The final word file holds roughly **110k** at just under **1mb** words less then 9 letters with an attempt to remove as much proper nouns as possibly. 
-
-*ADD stuff about webscraper here [using this script](https://gist.github.com/AndyDev2013/fe94b562fef4dd14ba03) that I made 
 
 ## Python script
 
