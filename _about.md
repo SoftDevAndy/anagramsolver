@@ -72,6 +72,8 @@ The wordlist even at around 1mb takes a lot of time to render as a gist in Chrom
 
 The final word file holds roughly **110k** at just under **1mb** words less then 9 letters with an attempt to remove as much proper nouns as possibly. 
 
+*ADD stuff about webscraper here [using this script](https://gist.github.com/AndyDev2013/fe94b562fef4dd14ba03) that I made 
+
 ## Python script
 
 ## Preprocessing
@@ -89,6 +91,7 @@ The final word file holds roughly **110k** at just under **1mb** words less then
 * [names.py](https://gist.github.com/AndyDev2013/d76cdaa3ccda9cc63194)
 * [removenoun.py](https://gist.github.com/AndyDev2013/d0e7b1672688a8abe26e)
 * [dictionaryCleaner.py](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9)
+* [scraper.py](https://gist.github.com/AndyDev2013/fe94b562fef4dd14ba03)
 
 **Dictionary Sources**
 
