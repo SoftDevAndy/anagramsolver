@@ -68,6 +68,8 @@ Knowing from before there was names included in the dictionary I found two sourc
 * Took imported the raw dictionary and combined proper nouns file and filted our the nouns into a cleaner dictionary [using this script](https://gist.github.com/AndyDev2013/d0e7b1672688a8abe26e) that I made
 * Finally the cleaner dictionary is put through [this script](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9) that I made to drop all words with special characters, larger then a conundrum etc
 
+The wordlist even at around 1mb takes a lot of time to render as a gist in Chrome and IE so I attached it externally as a dropbox link. The other thing I would like to say about the dictionary is that there was an attempt to remove proper nouns but 100% of them won't be removed but the majority of names and the obvious ones will have been removed using the scripts above.
+
 ## Python script
 
 ## Preprocessing
