@@ -2,27 +2,31 @@
 # G00237144
 # February 2016
 
-# Test Functions
+
+def import_dictionaryfile(file_name, debugmsg):
+
+    if debugmsg is True:
+        print("\nimport_dictionaryfile\n")
+
+    with open(file_name, 'r') as filein:
+        wordlist = filein.readlines()
+    filein.close()
+
+    return wordlist
 
 
-def test_checkvalidconundrum():
-    print('\ntest_checkvalidconundrum\n')
-    print(checkvalidconundrum('AAAAAAAAAA'))
-    print(checkvalidconundrum('BBBBBBBBBB'))
-    print(checkvalidconundrum('123456789'))
-    print(checkvalidconundrum('testing'))
-    print(checkvalidconundrum('conundrum'))
-    print(checkvalidconundrum('AAABBBBBB'))
-    print(checkvalidconundrum('CONUNDRUM'))
-
-
-def checkvalidconundrum(wordin):
+def checkvalidconundrum(wordin, debug):
 
     # Used the check if the 9 letter word is valid
     # Pass in a 9 letter word
     # Is uppercase
     # That contains no numbers
     # Contains at least 3 vowels and 4 consonants
+
+    if debug is True:
+        print("\nDebug: checkvalidconundrum\n")
+
+    wordin = wordin.upper()
 
     vowels = list("AEIOU")
     consonants = list("BCDFGHJKLMNPQRSTVWXYZ")
@@ -43,11 +47,37 @@ def checkvalidconundrum(wordin):
         return False
     if wordin.isalpha() is False:
         return False
-    if wordin.isupper() is False:
-        return False
 
     return True
 
 # Main Program
 
-test_checkvalidconundrum()
+# Variables
+
+debug_mode = True
+
+dictionary = []
+permutations = []
+
+# Importing the wordfile.txt
+
+print("--------------")
+print("Running solver.py")
+print("--------------")
+
+dictionary = import_dictionaryfile("wordfile.txt", debug_mode)
+
+# Prompting the user for a valid conundrum e.g the word conundrum is valid
+
+conundrum = input("Please enter a valid conundrum? ")
+
+while checkvalidconundrum(conundrum, debug_mode) is False:
+    print("The conundrum didn't meet the criteria, try again")
+    conundrum = input("Please enter a valid conundrum? ")
+
+conundrum = conundrum.upper()
+
+print("Valid Conundrum: ", conundrum)
+
+# Preprocessing building all permutations of the anagram
+
