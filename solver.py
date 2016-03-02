@@ -40,14 +40,26 @@ def checkvalidconundrum(wordin, debug):
 
     return True
 
+
+def dropwords(conun, wordlist):
+
+    cleanwordlist = set()
+    letters = set(conun)
+
+    for word in wordlist:
+        if len(list(set(word) - set(letters))) is 0:
+            cleanwordlist.add(word)
+
+    return cleanwordlist
+
 # Main Program
 
 # Variables
 
 debug_mode = True
 
-dictionary = []
-permutations = []
+dictionary = set()
+permutations = set()
 
 print("--------------")
 print("Running solver.py")
@@ -68,5 +80,13 @@ conundrum = conundrum.upper()
 print("Valid Conundrum: ", conundrum)
 
 permutations = preproc.get_permuations(conundrum)
+
+print()
+
+print(len(dictionary))
+
+dictionary = dropwords(conundrum, dictionary)
+
+print(len(dictionary))
 
 # Preprocessing building all permutations of the anagram, Importing the textfile

@@ -17,12 +17,16 @@
 
 def import_dictionaryfile(file_name, debugmsg):
 
+    wordlist = set()
+
     if debugmsg is True:
         print("\nimport_dictionaryfile\n")
 
-    with open(file_name, 'r') as filein:
-        wordlist = filein.readlines()
-    filein.close()
+    with open(file_name,'r') as f:
+        for word in f:
+            word = word.strip('\n')
+            wordlist.add(word)
+    f.close()
 
     return wordlist
 
