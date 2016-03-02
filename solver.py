@@ -2,17 +2,7 @@
 # G00237144
 # February 2016
 
-
-def import_dictionaryfile(file_name, debugmsg):
-
-    if debugmsg is True:
-        print("\nimport_dictionaryfile\n")
-
-    with open(file_name, 'r') as filein:
-        wordlist = filein.readlines()
-    filein.close()
-
-    return wordlist
+import preproc
 
 
 def checkvalidconundrum(wordin, debug):
@@ -59,25 +49,24 @@ debug_mode = True
 dictionary = []
 permutations = []
 
-# Importing the wordfile.txt
-
 print("--------------")
 print("Running solver.py")
 print("--------------")
 
-dictionary = import_dictionaryfile("wordfile.txt", debug_mode)
+dictionary = preproc.import_dictionaryfile("wordfile.txt", debug_mode)
 
 # Prompting the user for a valid conundrum e.g the word conundrum is valid
 
 conundrum = input("Please enter a valid conundrum? ")
 
 while checkvalidconundrum(conundrum, debug_mode) is False:
-    print("The conundrum didn't meet the criteria, try again")
+    print("\nThe conundrum didn't meet the criteria, try again")
     conundrum = input("Please enter a valid conundrum? ")
 
 conundrum = conundrum.upper()
 
 print("Valid Conundrum: ", conundrum)
 
-# Preprocessing building all permutations of the anagram
+permutations = preproc.get_permuations(conundrum)
 
+# Preprocessing building all permutations of the anagram, Importing the textfile
