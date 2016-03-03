@@ -90,7 +90,7 @@ There was many more sources but they all cite the same method for anagram genera
 Below is the adapted Python version. It's been changed to take a global set. A set was used specifically over an array because adding to it and looking up strings with a set was far superior when testing which was faster for these operations. 
 
 *One of the main reasons for using a set was because of the following*
-If a word with 2 repeating letters was used, for example _conundrum_. Conundrum contains two n's. The recursive method doesn't account for duplicates, it will generate them anyways. But the set only allows unique words. 
+If a word with 2 repeating letters was used, for example _conundrum_. Conundrum contains two n's and two u's. The recursive method doesn't account for duplicates, it will generate them anyways. But the set only allows unique words. The more repeating letters, the less permutations.
 
 I tried initially to create a method that checked if the word already existed in the array(when I tried using an array) but this got very slow. The more words that get added to the array, the longer the look ups take and in big O notation this is one of the worst cases. Searching through a growing space,requires more time and both of these times increase. Examples of this will be in the efficency section.
 
@@ -124,6 +124,35 @@ recursive(words, "", given_word)
 
 
 ## Efficiency
+
+Here is a comparison between using an array and a set to show how the set rejects duplicates.
+
+```python
+wordArray = []
+wordSet = set()
+
+def recursive(wordArray, wordSet, prefix, word):
+    i = 0
+    if len(word) <= 1:
+        wordArray.append(prefix + word)
+        wordSet.add(prefix + word)
+    else:
+        while i < len(word):
+
+            x = i + 1
+
+            current = word[i:x]
+            before = word[0:i]
+            after = word[x:]
+            recursive(wordArray, wordSet, prefix + current, before + after)
+            i += 1
+
+
+recursive(wordArray, wordSet, "", "CONUNDRUM")
+
+print(len(wordArray))
+print(len(wordSet))     
+```
 
 ## Results
 
