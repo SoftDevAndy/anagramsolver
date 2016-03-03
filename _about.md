@@ -81,13 +81,25 @@ Preprocessing for this project involves reading in the file and generating all p
 
 The generating of all the permutations were done using a recursive algorithm which is widely used when generating permutations for numbers and alogrithms. I had to adapt it to the python language and make it form to fit my means. This recursive algorithm is similar to the one in class we have done. Sources for this are 
 
-[Site 1](http://www.toves.org/books/java/ch18-recurex/)
-[Site 2](http://www.dreamincode.net/forums/topic/188032-java-recursion-anagram/)
-[Site 3](http://www.bowdoin.edu/~ltoma/teaching/cs107/fall05/Examples/Anagram.java)
+* [Site 1](http://www.toves.org/books/java/ch18-recurex/)
+* [Site 2](http://www.dreamincode.net/forums/topic/188032-java-recursion-anagram/)
+* [Site 3](http://www.bowdoin.edu/~ltoma/teaching/cs107/fall05/Examples/Anagram.java)
 
-There was many more sources but they all cite the same method for anagram generation. Below is the adapted Python version. It's been changed to take a global set. A set was used specifically over an array because adding to it and looking up strings with a set was far superior when testing which was faster for these operations. 
+There was many more sources but they all cite the same method for anagram generation. 
+
+Below is the adapted Python version. It's been changed to take a global set. A set was used specifically over an array because adding to it and looking up strings with a set was far superior when testing which was faster for these operations. 
+
+*One of the main reasons for using a set was because of the following*
+If a word with 2 repeating letters was used, for example _conundrum_. Conundrum contains two n's. The recursive method doesn't account for duplicates, it will generate them anyways. But the set only allows unique words. 
+
+I tried initially to create a method that checked if the word already existed in the array(when I tried using an array) but this got very slow. The more words that get added to the array, the longer the look ups take and in big O notation this is one of the worst cases. Searching through a growing space,requires more time and both of these times increase. Examples of this will be in the efficency section.
+
+Using a set was a more elegant solution, it catches the duplicates when they are generated.
 
 ```python
+
+words = set() 
+
 def recursive(permuset, prefix, word):
     i = 0
     if len(word) <= 1:
@@ -102,6 +114,8 @@ def recursive(permuset, prefix, word):
             after = word[x:]
             recursive(permuset, prefix + current, before + after)
             i += 1
+            
+recursive(words, "", given_word)         
 ```
 
 ## Python script
