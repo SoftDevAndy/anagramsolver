@@ -89,13 +89,6 @@ There was many more sources but they all cite the same method for anagram genera
 
 Below is the adapted Python version. It's been changed to take a global set. A set was used specifically over an array because adding to it and looking up strings with a set was far superior when testing which was faster for these operations. 
 
-*One of the main reasons for using a set was because of the following*
-If a word with 2 repeating letters was used, for example _conundrum_. Conundrum contains two n's and two u's. The recursive method doesn't account for duplicates, it will generate them anyways. But the set only allows unique words. The more repeating letters, the less permutations.
-
-I tried initially to create a method that checked if the word already existed in the array(when I tried using an array) but this got very slow. The more words that get added to the array, the longer the look ups take and in big O notation this is one of the worst cases. Searching through a growing space,requires more time and both of these times increase. Examples of this will be in the efficency section.
-
-Using a set was a more elegant solution, it catches the duplicates when they are generated. This helps drastically reduce the search space *IF* the word contains letters that aren't highly used. [This site](http://www.oxforddictionaries.com/words/which-letters-are-used-most) shows the letter frequency. As you can see U C and M are lower in frequency so this kind of filtering for a word like CONUNDRUM would reduce the search space by alot. 
-
 ```python
 
 words = set() 
@@ -117,6 +110,13 @@ def recursive(permuset, prefix, word):
             
 recursive(words, "", given_word)         
 ```
+
+*One of the main reasons for using a set was because of the following.*
+If a word with 2 repeating letters was used, for example _conundrum_. Conundrum contains two n's and two u's. The recursive method doesn't account for duplicates, it will generate them anyways. But the set only allows unique words. The more repeating letters, the less permutations.
+
+I tried initially to create a method that checked if the word already existed in the array(when I tried using an array) but this got very slow. The more words that get added to the array, the longer the look ups take and in big O notation this is one of the worst cases. Searching through a growing space,requires more time and both of these times increase. Examples of this will be in the efficency section.
+
+Using a set was a more elegant solution, it catches the duplicates when they are generated. This helps drastically reduce the search space *IF* the word contains letters that aren't highly used. [This site](http://www.oxforddictionaries.com/words/which-letters-are-used-most) shows the letter frequency. As you can see U C and M are lower in frequency so this kind of filtering for a word like CONUNDRUM would reduce the search space by alot. 
 
 ## Python script
 
