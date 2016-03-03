@@ -87,7 +87,7 @@ The generating of all the permutations were done using a recursive algorithm whi
 
 There was many more sources but they all cite the same method for anagram generation. Below is the adapted Python version. It's been changed to take a global set. A set was used specifically over an array because adding to it and looking up strings with a set was far superior when testing which was faster for these operations. 
 
-'''
+```python
 def recursive(permuset, prefix, word):
     i = 0
     if len(word) <= 1:
@@ -102,7 +102,7 @@ def recursive(permuset, prefix, word):
             after = word[x:]
             recursive(permuset, prefix + current, before + after)
             i += 1
-'''
+```
 
 ## Python script
 
