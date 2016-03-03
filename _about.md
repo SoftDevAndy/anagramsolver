@@ -154,6 +154,44 @@ print(len(wordArray))
 print(len(wordSet))     
 ```
 
+Here is an example of how a look up on an array mentioned above gets slower over time
+
+```python
+wordArray = []
+
+count = 0
+
+def recursive(wordArray, prefix, word):
+    i = 0
+
+    global count
+
+    count += 1
+
+    if count % 20000 is 0:
+        print(count)
+
+    if len(word) <= 1:
+        if word not in wordArray:
+            wordArray.append(prefix + word)
+    else:
+        while i < len(word):
+
+            x = i + 1
+
+            current = word[i:x]
+            before = word[0:i]
+            after = word[x:]
+            recursive(wordArray,prefix + current, before + after)
+            i += 1
+
+recursive(wordArray, "", "CONUNDRUM")
+
+print(len(wordArray))
+```
+
+It's much better to use a set, you could always iterate over the array later and remove duplicates instead of doing it when they are getting generated, doing so would still cost time. A set proved the most efficient solution across the board.
+
 ## Results
 
 ## Summary/Reflection
