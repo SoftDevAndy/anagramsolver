@@ -75,9 +75,39 @@ The final word file holds roughly **110k** at just under **1mb** words less then
 
 [The wordlist/dictionary file](https://dl.dropboxusercontent.com/u/75064039/wordfile.txt)
 
+## Preprocessing
+
+Preprocessing for this project involves reading in the file and generating all permutations the given conundrum. The conundrum must be 9 letters and fit the criteria so the factorial for nine unique letters gives 362,880 permutations. If any of the letters repeat this drastically reduces the amout of permutations. A nine letter word with two of the same letter reduces the 362,880 down to half 181,440. A good source for working out this information is [here](http://www.regentsprep.org/regents/math/algebra/apr2/LpermRep.htm)
+
+The generating of all the permutations were done using a recursive algorithm which is widely used when generating permutations for numbers and alogrithms. I had to adapt it to the python language and make it form to fit my means. This recursive algorithm is similar to the one in class we have done. Sources for this are 
+
+[Site 1](http://www.toves.org/books/java/ch18-recurex/)
+[Site 2](http://www.dreamincode.net/forums/topic/188032-java-recursion-anagram/)
+[Site 3](http://www.bowdoin.edu/~ltoma/teaching/cs107/fall05/Examples/Anagram.java)
+
+There was many more sources but they all cite the same method for anagram generation. Below is the adapted Python version. It's been changed to take a global set. A set was used specifically over an array because adding to it and looking up strings with a set was far superior when testing which was faster for these operations. 
+
+'''
+def recursive(permuset, prefix, word):
+    i = 0
+    if len(word) <= 1:
+        permuset.add(prefix + word)
+    else:
+        while i < len(word):
+
+            x = i + 1
+
+            current = word[i:x]
+            before = word[0:i]
+            after = word[x:]
+            recursive(permuset, prefix + current, before + after)
+            i += 1
+'''
+
 ## Python script
 
-## Preprocessing
+
+
 
 ## Efficiency
 
@@ -89,6 +119,7 @@ Update this later...
 
 Gists near 1mb slow down the browser so it was easier to have the dictionary as an external link
 Python was very handy for quick string manipulation and webscraping when building the textfile
+Sets and arrays
 
 ## References
 
