@@ -125,6 +125,8 @@ recursive(words, "", given_word)
 
 ## Efficiency
 
+### Efficiency - Preprocessing
+
 Here is a comparison between using an array and a set to show how the set rejects duplicates.
 
 ```python
@@ -191,6 +193,47 @@ print(len(wordArray))
 ```
 
 It's much better to use a set, you could always iterate over the array later and remove duplicates instead of doing it when they are getting generated, doing so would still cost time. A set proved the most efficient solution across the board.
+
+### Efficiency - Solver
+
+The first thing I wanted to do was pull out all of the words that contain letters that aren't in the conundrum. This was the first step to drastically reduce the search space when searching for anagrams.
+
+This again used sets to make things alot faster and easier. Python allows for sets to be subtracted from each other.
+
+The method below shows the following
+
+* Converts the conundrum into a set, e.g a set for the word CONUNDRUM would contain only the unique letters *C D M N O R U*
+* Next we iterate through all the words in the dictionary of possible anagrams there are words between 3 - 9 characters inclusive
+* The word is case into a set of letters e.g the word MUG
+* Subtracting the conundrumset from the wordset results in ['G'] left over
+* This means a letter in the word, isn't in the conundrum and we can throw away the word
+* MUG is not an conundrum of CONUNDRUM because CONUNDRUM doesn't contain G 
+
+```python
+def dropwords():
+
+     if len(list(set('MUG') - set("CONUNDRUM"))) is not 0:
+         print(list(set('MUG') - set("CONUNDRUM")))
+
+dropwords()
+```
+
+This was adapted into the code below. All of the words that contain valid letters for the conundrum are kept and added to a cleanwordlist set and returned.
+
+```python
+
+def dropwords(conun, wordlist):
+
+    cleanwordlist = set()
+    letters = set(conun)
+
+    for word in wordlist:
+        if len(list(set(word) - set(letters))) is 0:
+            cleanwordlist.add(word)
+
+    return cleanwordlist
+
+```
 
 ## Results
 
