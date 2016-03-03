@@ -198,9 +198,9 @@ It's much better to use a set, you could always iterate over the array later and
 
 Update this later...
 
-Gists near 1mb slow down the browser so it was easier to have the dictionary as an external link
-Python was very handy for quick string manipulation and webscraping when building the textfile
-Sets and arrays
+* Gists near 1mb slow down the browser so it was easier to have the dictionary as an external link
+* Python was very handy for quick string manipulation and webscraping when building the textfile
+* Sets and arrays
 
 ## References
 
