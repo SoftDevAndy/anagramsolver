@@ -22,7 +22,6 @@ Add to your Python script a function to test your algorithm, which creates a ran
 
 * Project Plan
 * Words List
-* Python Script
 * Preprocessing
 * Efficiency
 * Results
@@ -40,10 +39,9 @@ Add to your Python script a function to test your algorithm, which creates a ran
 
 **Execute Phase**
 
-* Rough draft of algorithm
+* ~~Rough draft of algorithm~~
+* ~~Alternatives~~
 * Fine tuned algorithm
-* Alternatives
-* More to come...
 
 **Summary Phase**
 
@@ -56,9 +54,11 @@ The creation of the word list involves meeting some criteria. All of the words m
 
 From sources listed below I built up a large dictionary full of words with special characters,numbers and plenty of other stuff to be filtered out. Reading through it, it contained quite alot of names aswell so I took this issue into account.
 
-Next I gather proper nouns from the sources below and combined them all together to make a file that would be used to filter out proper nouns from the dictionary that was to be built. This involved Days of the week,months,countries and capitals. 
+Next I gathered proper nouns from the sources below and combined them all together to make a file that would be used to filter out proper nouns from the dictionary that was to be built. This involved days of the week,months,countries and capitals. 
 
 Knowing from before there was names included in the dictionary I found two sources for common male and female names, the format wasn't strictly line for line, name for name, there was statistics and other figures included so these had to be filtered out.
+
+There was many steps in creating the dictionary and below details the steps taken and scripts created and used.
 
 **How the wordlist.txt was built**
 
@@ -69,7 +69,7 @@ Knowing from before there was names included in the dictionary I found two sourc
 * Took imported the raw dictionary and combined proper nouns file and filted our the nouns into a cleaner dictionary [using this script](https://gist.github.com/AndyDev2013/d0e7b1672688a8abe26e) that I made
 * Finally the cleaner dictionary is put through [this script](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9) that I made to drop all words with special characters, larger then a conundrum etc
 
-The wordlist even at around 1mb takes a lot of time to render as a gist in Chrome and IE so I attached it externally as a dropbox link. The other thing I would like to say about the dictionary is that there was an attempt to remove proper nouns but 100% of them won't be removed but the majority of names and the obvious ones will have been removed using the scripts above.
+The wordlist even at around 1mb takes a lot of time to render as a gist in Chrome and IE so I attached it externally as a dropbox link. The other thing I would like to say about the dictionary is that there was an attempt to remove proper nouns but not all of them won't be removed but the majority of names and the obvious ones will have been removed using the scripts above.
 
 The final word file holds roughly **110k** at just under **1mb** words less then 9 letters with an attempt to remove as much proper nouns as possibly. 
 
@@ -117,11 +117,6 @@ If a word with 2 repeating letters was used, for example _conundrum_. Conundrum 
 I tried initially to create a method that checked if the word already existed in the array(when I tried using an array) but this got very slow. The more words that get added to the array, the longer the look ups take and in big O notation this is one of the worst cases. Searching through a growing space,requires more time and both of these times increase. Examples of this will be in the efficency section.
 
 Using a set was a more elegant solution, it catches the duplicates when they are generated. This helps drastically reduce the search space *IF* the word contains letters that aren't highly used. [This site](http://www.oxforddictionaries.com/words/which-letters-are-used-most) shows the letter frequency. As you can see U C and M are lower in frequency so this kind of filtering for a word like CONUNDRUM would reduce the search space by alot. 
-
-## Python script
-
-
-
 
 ## Efficiency
 
