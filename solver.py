@@ -113,16 +113,22 @@ def random_input():
     vowels = list("AEIOU")
     consonants = list("BCDFGHJKLMNPQRSTVWXYZ")
 
+    count = 0
+
     word = ""
 
-    word += (random.choice(vowels))
-    word += (random.choice(vowels))
-    word += (random.choice(vowels))
+    word += (random.choice(consonants))
+    word += (random.choice(consonants))
+    word += (random.choice(consonants))
+    word += (random.choice(consonants))
 
-    word += (random.choice(consonants))
-    word += (random.choice(consonants))
-    word += (random.choice(consonants))
-    word += (random.choice(consonants))
+    while count < word.count('Q'):
+        word += 'U'
+        count += 1
+
+    while count < 3:
+        word += (random.choice(vowels))
+        count += 1
 
     secondlast = random.randint(0, 1)
     last = random.randint(0, 1)
@@ -218,8 +224,8 @@ anagram = ""
 
 # Variables
 
-#anagram = random_input()
-anagram = user_input()
+anagram = random_input()
+#anagram = user_input()
 
 preprocessing(anagram)
 
