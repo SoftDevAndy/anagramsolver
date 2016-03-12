@@ -15,12 +15,9 @@
 # but a word with no repeating characters would be something like bath
 
 
-def import_dictionaryfile(file_name, debugmsg):
+def import_dictionaryfile(file_name):
 
     wordlist = set()
-
-    if debugmsg is True:
-        print("\nimport_dictionaryfile\n")
 
     with open(file_name,'r') as f:
         for word in f:
@@ -30,30 +27,3 @@ def import_dictionaryfile(file_name, debugmsg):
 
     return wordlist
 
-
-def recursive(permuset, prefix, word):
-    i = 0
-    if len(word) <= 1:
-        permuset.add(prefix + word)
-    else:
-        while i < len(word):
-
-            x = i + 1
-
-            current = word[i:x]
-            before = word[0:i]
-            after = word[x:]
-            recursive(permuset, prefix + current, before + after)
-            i += 1
-
-
-def get_permuations(given_word):
-    permus = set()
-
-    print("\nPreprocessing")
-
-    recursive(permus, "", given_word)
-
-    print("All Permutations generated: ", len(permus))
-
-    return permus
