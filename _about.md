@@ -32,6 +32,7 @@ Add to your Python script a function to test your algorithm, which creates a ran
 * Solver
 * Results
 * Summary/Reflection
+* Alternatives
 * References
 
 ## Project Plan
@@ -111,15 +112,21 @@ We have global knowledge of our project. We know that we want to find
 Using these rules, I supplied a dictionary with only words between 3 and 9 letters inclusive. This was the first measure taken to reduce the search space. This reduced the amount of words. Carrying out this action as preprocessing or as part of the program would take away from our run time.
 
 ## Solver
+**Working on this section currently**
 
-Working on this section currently
+**Psuedo Code**
 
-![Screenshot](http://puu.sh/nEzNw/d4035b4a79.png)
-![Screenshot](http://puu.sh/nEzMT/136cf9e206.png)
+* Take user input with a valid anagram or generate a random valid anagram
+* Import the words file into a set, drop all words from the set that don't contain letters in the anagram 
+* This set is sorted descending in orderby length and returned as a sorted list
+* Run through all the words of length nine and check if it's a conundrum, remove them from the list one by one, if the word matches stop and print it out to screen
+* Otherwise check the rest of the list
 
-The first thing I wanted to do was pull out all of the from the dictionary words that contain letters that aren't in the anagram. This was the second step to drastically reduce the search space when searching for anagrams.
+**Indepth**
 
-This aused sets to make things alot faster and easier. Words in Python parsed to sets are allowed to be subtracted from each other.
+The first thing I wanted to do was pull out all of the words from the dictionary words that contain letters that aren't in the anagram. This was the second step to drastically reduce the search space when searching for anagrams.
+
+Words in Python parsed to sets are allowed to be subtracted from each other, This operation is pretty quick and can be used to tell if a word contains the same letters in the anagram, but it doesn't account for duplicates (I account for this later).
 
 The method below shows the following
 
@@ -157,6 +164,13 @@ def dropwords(anagram, wordlist):
 ```
 
 ## Results
+
+**Two tests running the program including preprocessing and the time it took**
+
+Both tests resulted in the same time of less then 0.01 of a second. Timing programs that end up being around this time scale can be effected by other processes running on the computer
+
+![Screenshot](http://puu.sh/nEzNw/d4035b4a79.png)
+![Screenshot](http://puu.sh/nEzMT/136cf9e206.png)
 
 ## Summary/Reflection
 
@@ -283,6 +297,8 @@ print(len(wordArray))
 ```
 
 It's much better to use a set, you could always iterate over the array later and remove duplicates instead of doing it when they are getting generated, doing so would still cost time. A set proved the most efficient solution across the board.
+
+## Alternatives
 
 ## References
 
