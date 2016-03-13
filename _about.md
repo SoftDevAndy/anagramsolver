@@ -251,7 +251,74 @@ The following line is then called to turn the set into a list of sorted words, s
 dictionary = sorted(dictionary, key=len, reverse=True) 
 ```
 
+The algorithm is finally called which uses this sorted list
 
+```python
+def algorithm():
+    global dictionary
+    global anagram
+
+    tempdictionary = dictionary
+
+    wordfound = "No word found"     # Default word
+    count = 0
+
+    t0 = time.time()
+
+    # NB at this point we know the dictionary is in descending order my length
+
+    print()
+    print("Size of dictionary with 9 letter words: ", len(tempdictionary))
+
+    for word in tempdictionary:     # For each word in the wordlist dictionary
+
+        count += 1      # Increase the count, just for tracking the amount of iterations
+
+        if collections.Counter(word) == collections.Counter(anagram):
+
+            # If the word contains the same amount of matching letters as the anagram
+
+            print("\nFound a nine letter conundrum!")
+            wordfound = word
+            break
+
+        if len(word) != 9:  # Once you reach
+            break
+        else:
+
+            # The word isn't a 9 letter anagram so remove it from the dictionary
+
+            tempdictionary.remove(word)
+
+    print("Size of dictionary with 9 letter words removed: ", len(tempdictionary))
+
+    # Above gets 9 letter conundrum
+    # -----------------------------
+
+    for word in tempdictionary:
+
+        count += 1
+
+        if not collections.Counter(word) - collections.Counter(anagram):
+
+            # Removes the anagram letters from the word
+            # If any letters are left over in the collections.Counter(word) it's not an anagram and returns true because there is information in the counter
+            # Otherwise the counter is empty which means we have a valid anagram
+
+            print()
+            print("collections.Counter(word): ", collections.Counter(word))
+            print("collections.Counter(anagram): ", collections.Counter(anagram))
+            print("collections.Counter(word) - collections.Counter(anagram): ", collections.Counter(word) - collections.Counter(anagram))
+            wordfound = word
+            break
+
+    print()
+    print("First word found: --> {} <-- word size {} ".format(wordfound.title(), len(wordfound)))
+    print("\nTime: ", time.time() - t0)
+    print("\nCount: ", count)
+
+    return {'Time': time.time() - t0}
+```
 
 ## Results
 
