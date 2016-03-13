@@ -6,7 +6,13 @@ This project is created for the Theory of Algorithms module as part of a fourth 
 
 **Project Outline**
 
-You are required to create two pieces: a Python script that solves the Countdown letters game, and a document explaining how your solver works. The Countdown letters game is as detailed on Wikipedia. Esentially, you are given a list of nine random letters which contains at least three vowels and four consonants. You must find the longest possible word in the Oxford English dictionary that is an anagram of some or all of the letters in the random list. If there is more than one word of longest length, then each is as acceptable a solution as the others.
+You are required to create two pieces: 
+
+A python script that solves the Countdown letters game
+
+A document explaining how your solver works.
+
+The Countdown letters game is as detailed on Wikipedia. Esentially, you are given a list of nine random letters which contains at least three vowels and four consonants. You must find the longest possible word in the Oxford English dictionary that is an anagram of some or all of the letters in the random list. If there is more than one word of longest length, then each is as acceptable a solution as the others.
 
 **Instructions**
 
@@ -41,43 +47,120 @@ Add to your Python script a function to test your algorithm, which creates a ran
 
 * ~~Rough draft of algorithm~~
 * ~~Alternatives~~
-* Fine tuned algorithm
+* ~~Fine tuned algorithm~~
 
 **Summary Phase**
 
-* Time functions and find the best results
+* ~~Time functions and find the best results~~
 * Write up findings
 
 ## Words List
 
-The creation of the word list involves meeting some criteria. All of the words must not contain whitespace,special characters,number etc. They also must me uppercase to make things a bit easier for my own parsing and also must not contain proper nouns.
+The creation of the word list involves meeting some criteria.
+
+All of the words must contain 
+* No whitespace 
+* No special characters
+* No numbers
+* No non alphabetical characters
+* Must be uppercase to make parsing easier
+* Must not contain proper nouns
 
 From sources listed below I built up a large dictionary full of words with special characters,numbers and plenty of other stuff to be filtered out. Reading through it, it contained quite alot of names aswell so I took this issue into account.
 
-Next I gathered proper nouns from the sources below and combined them all together to make a file that would be used to filter out proper nouns from the dictionary that was to be built. This involved days of the week,months,countries and capitals. 
-
-Knowing from before there was names included in the dictionary I found two sources for common male and female names, the format wasn't strictly line for line, name for name, there was statistics and other figures included so these had to be filtered out.
+Next I gathered proper nouns from the sources below and combined them all together to make a file that would be used to filter out proper nouns from the dictionary that was to be built. This involved days of the week,months,countries and capitals etc. Added to this were common male and female names. All of these sources had to be filtered.
 
 There was many steps in creating the dictionary and below details the steps taken and scripts created and used.
 
-**How the wordlist.txt was built**
+## How the wordlist.txt was built
+
+**For the main dictionary**
 
 * Created a webscraper to download 3000ish commond oxford words [using this script](https://gist.github.com/AndyDev2013/fe94b562fef4dd14ba03) that I made 
-* Combined multiple dictionaries from sources including the oxford3000 source
-* Created a list of proper nouns from sources
-* Created a list of male and female names, formatted them using a [using this script](https://gist.github.com/AndyDev2013/d76cdaa3ccda9cc63194) that I made then combined this clean list of names with the existing proper nouns file
-* Took imported the raw dictionary and combined proper nouns file and filted our the nouns into a cleaner dictionary [using this script](https://gist.github.com/AndyDev2013/d0e7b1672688a8abe26e) that I made
-* Finally the cleaner dictionary is put through [this script](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9) that I made to drop all words with special characters, larger then a conundrum etc
 
-The wordlist even at around 1mb takes a lot of time to render as a gist in Chrome and IE so I attached it externally as a dropbox link. The other thing I would like to say about the dictionary is that there was an attempt to remove proper nouns but not all of them won't be removed but the majority of names and the obvious ones will have been removed using the scripts above.
+Combined multiple dictionaries from sources including the 
+* [Oxford3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/)
+* [Theory of Algorithms in class wordlist](http://puu.sh/nfyIh/c25f4097de.txt)
+* [Second year Java dictionary](http://puu.sh/nfzcu/a8cb82715c.txt)
 
-The final word file holds roughly **110k** at just under **1mb** words less then 9 letters with an attempt to remove as much proper nouns as possibly. 
+All three sources combined contained names, proper nouns and words with special characters. All of this must be filtered out to make a more usable dictionary.
+ 
+**For the black list dictionary**
+
+* Created a list of male and female names, formatted them using a [using this script](https://gist.github.com/AndyDev2013/d76cdaa3ccda9cc63194) that I made then combined this clean list of names with the  black list dictionary
+* Added countries, capitals, days of the week and seasons to the black list dictionary
+* Imported the main dictionary and black list dictionary file and filted out the nouns into a cleaner dictionary [using this script](https://gist.github.com/AndyDev2013/d0e7b1672688a8abe26e) that I made
+* Finally the cleaner dictionary is put through [this script](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9) that I made to drop all words with special characters, larger then 9 letters and other criteria that reduces the size of the dictionary
+
+The wordlist dictionary, even at around 1mb takes a lot of time to render as a gist in Chrome and IE so I attached it externally as a dropbox link. The other thing I would like to say about the dictionary is that there was an attempt to remove proper nouns, but not all of them won't be removed but the majority of names and the obvious ones will have been removed using the scripts above. In other words the dictionary isn't perfect but a lot of effort was put in to reduce erroneous words.
+
+The final word file holds roughly **110k** at just under **1mb** words.
 
 [The wordlist/dictionary file](https://dl.dropboxusercontent.com/u/75064039/wordfile.txt)
 
 ## Preprocessing
 
-Preprocessing for this project involves reading in the file and generating all permutations the given conundrum. The conundrum must be 9 letters and fit the criteria so the factorial for nine unique letters gives 362,880 permutations. If any of the letters repeat this drastically reduces the amout of permutations. A nine letter word with two of the same letter reduces the 362,880 down to half 181,440. A good source for working out this information is [here](http://www.regentsprep.org/regents/math/algebra/apr2/LpermRep.htm)
+### Efficiency - Solver
+
+The first thing I wanted to do was pull out all of the words that contain letters that aren't in the conundrum. This was the first step to drastically reduce the search space when searching for anagrams.
+
+This again used sets to make things alot faster and easier. Python allows for sets to be subtracted from each other.
+
+The method below shows the following
+
+* Converts the conundrum into a set, e.g a set for the word CONUNDRUM would contain only the unique letters *C D M N O R U*
+* Next we iterate through all the words in the dictionary of possible anagrams there are words between 3 - 9 characters inclusive
+* The word is case into a set of letters e.g the word MUG
+* Subtracting the conundrumset from the wordset results in ['G'] left over
+* This means a letter in the word, isn't in the conundrum and we can throw away the word
+* MUG is not an conundrum of CONUNDRUM because CONUNDRUM doesn't contain G 
+
+```python
+def dropwords():
+
+     if len(list(set('MUG') - set("CONUNDRUM"))) is not 0:
+         print(list(set('MUG') - set("CONUNDRUM")))
+
+dropwords()
+```
+
+This was adapted into the code below. All of the words that contain valid letters for the conundrum are kept and added to a cleanwordlist set and returned.
+
+```python
+
+def dropwords(conun, wordlist):
+
+    cleanwordlist = set()
+    letters = set(conun)
+
+    for word in wordlist:
+        if len(list(set(word) - set(letters))) is 0:
+            cleanwordlist.add(word)
+
+    return cleanwordlist
+
+```
+
+## Results
+
+## Summary/Reflection
+
+### Gists
+
+All of the scripts for this project were kept in public gists for the entirity of the project. This was convenient and almost like using a repo'd version of pastebin. Great for sharing and throwing up a script online quckly. 
+
+The only issue that came up when using Gists was storing the dictionary files as a Gist. In Chrome and IE on both my computer and laptop the file would cause some sort of memory leak as the browser kept trying to render the thousands of words. This would ultimately crash the page or browser due to the size of the file. The result of this was storing the dictionary in a public dropbox and linking to it.
+
+### Using Python
+
+Python was used for everything in this project. The creation of the dictionary, the webscraper and the charting later. Python was very handy and perfect for creating small powerful scripts that were quick to put together and get the task done. Alot of the programming was done in Sublime Text and then later in PyCharm. I had the latest version of 3.5 installed which restricted me a litle when I later wanted to create some graphs of the running time. Other then certain libraries and packages not being available for the most upto date version (understandable) of Python there was no issues.
+
+### Scrapped Permutations
+
+**Originally I had gone through great lengths to find the fastest way for generating all the permutations of a nine letter algorithm. This was removed because I find a much more elegant way which didn't include generating and testing permutations.
+As fast as it turned out to be, it wasn't needed but moved the findings to this section to show the process.**
+
+The conundrum must be 9 letters and fit the criteria so the factorial for nine unique letters gives 362,880 permutations. If any of the letters repeat this drastically reduces the amout of permutations. A nine letter word with two of the same letter reduces the 362,880 down to half 181,440. A good source for working out this information is [here](http://www.regentsprep.org/regents/math/algebra/apr2/LpermRep.htm)
 
 The generating of all the permutations were done using a recursive algorithm which is widely used when generating permutations for numbers and alogrithms. I had to adapt it to the python language and make it form to fit my means. This recursive algorithm is similar to the one in class we have done. Sources for this are 
 
@@ -117,10 +200,6 @@ If a word with 2 repeating letters was used, for example _conundrum_. Conundrum 
 I tried initially to create a method that checked if the word already existed in the array(when I tried using an array) but this got very slow. The more words that get added to the array, the longer the look ups take and in big O notation this is one of the worst cases. Searching through a growing space,requires more time and both of these times increase. Examples of this will be in the efficency section.
 
 Using a set was a more elegant solution, it catches the duplicates when they are generated. This helps drastically reduce the search space *IF* the word contains letters that aren't highly used. [This site](http://www.oxforddictionaries.com/words/which-letters-are-used-most) shows the letter frequency. As you can see U C and M are lower in frequency so this kind of filtering for a word like CONUNDRUM would reduce the search space by alot. 
-
-## Efficiency
-
-### Efficiency - Preprocessing
 
 Here is a comparison between using an array and a set to show how the set rejects duplicates.
 
@@ -188,57 +267,6 @@ print(len(wordArray))
 ```
 
 It's much better to use a set, you could always iterate over the array later and remove duplicates instead of doing it when they are getting generated, doing so would still cost time. A set proved the most efficient solution across the board.
-
-### Efficiency - Solver
-
-The first thing I wanted to do was pull out all of the words that contain letters that aren't in the conundrum. This was the first step to drastically reduce the search space when searching for anagrams.
-
-This again used sets to make things alot faster and easier. Python allows for sets to be subtracted from each other.
-
-The method below shows the following
-
-* Converts the conundrum into a set, e.g a set for the word CONUNDRUM would contain only the unique letters *C D M N O R U*
-* Next we iterate through all the words in the dictionary of possible anagrams there are words between 3 - 9 characters inclusive
-* The word is case into a set of letters e.g the word MUG
-* Subtracting the conundrumset from the wordset results in ['G'] left over
-* This means a letter in the word, isn't in the conundrum and we can throw away the word
-* MUG is not an conundrum of CONUNDRUM because CONUNDRUM doesn't contain G 
-
-```python
-def dropwords():
-
-     if len(list(set('MUG') - set("CONUNDRUM"))) is not 0:
-         print(list(set('MUG') - set("CONUNDRUM")))
-
-dropwords()
-```
-
-This was adapted into the code below. All of the words that contain valid letters for the conundrum are kept and added to a cleanwordlist set and returned.
-
-```python
-
-def dropwords(conun, wordlist):
-
-    cleanwordlist = set()
-    letters = set(conun)
-
-    for word in wordlist:
-        if len(list(set(word) - set(letters))) is 0:
-            cleanwordlist.add(word)
-
-    return cleanwordlist
-
-```
-
-## Results
-
-## Summary/Reflection
-
-Update this later...
-
-* Gists near 1mb slow down the browser so it was easier to have the dictionary as an external link
-* Python was very handy for quick string manipulation and webscraping when building the textfile
-* Sets and arrays
 
 ## References
 
