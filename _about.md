@@ -100,20 +100,30 @@ The final word file holds roughly **110k** at just under **1mb** words.
 
 ## Preprocessing
 
+All of the preprocessing was removed from the project except for the need of reading in the dictionary once from file. The clean dictionary is read in and the size of it is reduced on the fly to keep things as fast as possible. 
+
+We have global knowledge of our project. We know that we want to find 
+
+* At best a 9 letter anagram
+* At worst a 3 letter anagram
+* Our worse case is no anagram
+
+Using these rules, I supplied a dictionary with only words between 3 and 9 letters inclusive. This was the first measure taken to reduce the search space. This reduced the amount of words. Carrying out this action as preprocessing or as part of the program would take away from our run time.
+
 ### Efficiency - Solver
 
-The first thing I wanted to do was pull out all of the words that contain letters that aren't in the conundrum. This was the first step to drastically reduce the search space when searching for anagrams.
+The first thing I wanted to do was pull out all of the from the dictionary words that contain letters that aren't in the anagram. This was the second step to drastically reduce the search space when searching for anagrams.
 
-This again used sets to make things alot faster and easier. Python allows for sets to be subtracted from each other.
+This aused sets to make things alot faster and easier. Words in Python parsed to sets are allowed to be subtracted from each other.
 
 The method below shows the following
 
-* Converts the conundrum into a set, e.g a set for the word CONUNDRUM would contain only the unique letters *C D M N O R U*
-* Next we iterate through all the words in the dictionary of possible anagrams there are words between 3 - 9 characters inclusive
-* The word is case into a set of letters e.g the word MUG
-* Subtracting the conundrumset from the wordset results in ['G'] left over
-* This means a letter in the word, isn't in the conundrum and we can throw away the word
-* MUG is not an conundrum of CONUNDRUM because CONUNDRUM doesn't contain G 
+* Converts the anagram into a set, e.g a set for the anagram CONUNDRUM would contain only the unique letters *C D M N O R U*
+* Next we iterate through all the words in the dictionary of possible words t
+* The word is cast into a set of letters e.g the word MUG
+* Subtracting the anagram set from the word set results in ['G'] being left over
+* This means the letter G isn't in the conundrum and we can throw away the word
+* MUG is not an anagram of CONUNDRUM because CONUNDRUM doesn't contain the letter G 
 
 ```python
 def dropwords():
@@ -124,14 +134,14 @@ def dropwords():
 dropwords()
 ```
 
-This was adapted into the code below. All of the words that contain valid letters for the conundrum are kept and added to a cleanwordlist set and returned.
+This was adapted into the code below. All of the words that contain valid letters for the anagram are kept and added to a cleanwordlist set and returned.
 
 ```python
 
-def dropwords(conun, wordlist):
+def dropwords(anagram, wordlist):
 
     cleanwordlist = set()
-    letters = set(conun)
+    letters = set(anagram)
 
     for word in wordlist:
         if len(list(set(word) - set(letters))) is 0:
@@ -157,7 +167,7 @@ Python was used for everything in this project. The creation of the dictionary, 
 
 ### Scrapped Permutations
 
-**Originally I had gone through great lengths to find the fastest way for generating all the permutations of a nine letter algorithm. This was removed because I fpund a much more elegant way which didn't include generating and using multiple permutations or a word.
+**Originally I had gone through great lengths to find the fastest way for generating all the permutations of a nine letter algorithm. This was removed because I found a much more elegant way which didn't include generating and using multiple permutations or a word.
 Implementing the checking of every permutation of a word would drastically increase the search time when finding an anagram/conundrum.
 As fast as it turned out to be, it wasn't needed but moved the findings to this section to show the process.**
 
