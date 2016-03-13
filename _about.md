@@ -157,7 +157,8 @@ Python was used for everything in this project. The creation of the dictionary, 
 
 ### Scrapped Permutations
 
-**Originally I had gone through great lengths to find the fastest way for generating all the permutations of a nine letter algorithm. This was removed because I find a much more elegant way which didn't include generating and testing permutations.
+**Originally I had gone through great lengths to find the fastest way for generating all the permutations of a nine letter algorithm. This was removed because I fpund a much more elegant way which didn't include generating and using multiple permutations or a word.
+Implementing the checking of every permutation of a word would drastically increase the search time when finding an anagram/conundrum.
 As fast as it turned out to be, it wasn't needed but moved the findings to this section to show the process.**
 
 The conundrum must be 9 letters and fit the criteria so the factorial for nine unique letters gives 362,880 permutations. If any of the letters repeat this drastically reduces the amout of permutations. A nine letter word with two of the same letter reduces the 362,880 down to half 181,440. A good source for working out this information is [here](http://www.regentsprep.org/regents/math/algebra/apr2/LpermRep.htm)
