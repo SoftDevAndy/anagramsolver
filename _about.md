@@ -124,6 +124,94 @@ Using these rules, I supplied a dictionary with only words between 3 and 9 lette
 
 **Indepth**
 
+The file gets read in as detailed in Preprocessing.
+
+```python
+def import_dictionaryfile(file_name):
+
+    wordlist = set()
+
+    with open(file_name, 'r') as f: # Reading in the file
+        for word in f:  # For every word in the file read in
+            word = word.strip('\n')  # Strip the new line character from the word
+            wordlist.add(word)  # Add the word to the set
+    f.close()  # Close the file
+
+    # Finally return the set of words
+
+    return wordlist
+```
+
+Next depending on wether you've commented the input line out or not. You'll enter the anagram which must meet the requirements of having 9 letters exactly and this word much include 4 consonants and 3 vowels and 2 more letters of your choice. Below is the code for the user input code
+
+```python
+def user_input():
+    print("--------------")
+    print("Running solver.py")
+    print("--------------")
+
+    anagram = input("Please enter a valid conundrum? ")     # Takes the user input
+
+    while checkvalidconundrum(anagram) is False:    # Checks whether the user word is valid if not, try again
+        print("\nThe conundrum didn't meet the criteria, try again")
+        anagram = input("Please enter a valid conundrum? ")
+
+    anagram = anagram.upper()   # Converts the word to uppercase
+
+    print("Valid Anagram: ", anagram)       # Print success message and return the valid, uppercase word
+
+    return anagram
+```
+
+Otherwise the word is generated randomly. For each Q that is randomized and added to the word a matching U is also added to the word. This reduces the amount of vowels to add. It's pretty well commented.
+
+```python
+def random_input():
+    print("--------------")
+    print("Running solver.py")
+    print("--------------")
+
+    vowels = list("AEIOU")      # List of vowels
+    consonants = list("BCDFGHJKLMNPQRSTVWXYZ")      # List of consonants
+
+    count = 0
+    word = ""
+
+    word += (random.choice(consonants))     # Added the first random consonant
+    word += (random.choice(consonants))     # Added the second random consonant
+    word += (random.choice(consonants))     # Added the third random consonant
+    word += (random.choice(consonants))     # Added the fourth random consonant
+
+    while count < word.count('Q'):      # Checks if the word has any Q's if so...
+        word += 'U'     # Add a corresponding U
+        count += 1      # Mark that we added a vowel (U)
+
+    while count < 3:    # While count of vowels is less then 3 (could have increased because of the Q's and added U's)
+        word += (random.choice(vowels))     # Add a random vowel
+        count += 1      # Mark that a vowel was added
+
+    # Now 7/9 letters have been added we randomly choose the last 2 letters to add
+
+    secondlast = random.randint(0, 1)       # Random integer between 0 and 1, 0 for a vowel or 1 for a consonant
+    last = random.randint(0, 1)     # Random integer between 0 and 1, 0 for a vowel or 1 for a consonant
+
+    if last == 0:
+        word += (random.choice(vowels))
+    else:
+        word += (random.choice(consonants))
+
+    if secondlast == 0:
+        word += (random.choice(vowels))
+    else:
+        word += (random.choice(consonants))
+
+    # Return the finished 9 letter word meeting the criteria
+
+    return word
+```
+
+Once the input is given we can use the letters to drop words from the dictionary that contain the same letters.
+
 The first thing I wanted to do was pull out all of the words from the dictionary words that contain letters that aren't in the anagram. This was the second step to drastically reduce the search space when searching for anagrams.
 
 Words in Python parsed to sets are allowed to be subtracted from each other, This operation is pretty quick and can be used to tell if a word contains the same letters in the anagram, but it doesn't account for duplicates (I account for this later).
@@ -142,16 +230,13 @@ def dropwords():
 
      if len(list(set('MUG') - set("CONUNDRUM"))) is not 0:
          print(list(set('MUG') - set("CONUNDRUM")))
-
 dropwords()
 ```
 
 This was adapted into the code below. All of the words that contain valid letters for the anagram are kept and added to a cleanwordlist set and returned.
 
 ```python
-
 def dropwords(anagram, wordlist):
-
     cleanwordlist = set()
     letters = set(anagram)
 
@@ -160,7 +245,6 @@ def dropwords(anagram, wordlist):
             cleanwordlist.add(word)
 
     return cleanwordlist
-
 ```
 
 ## Results
