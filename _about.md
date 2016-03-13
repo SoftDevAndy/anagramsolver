@@ -227,10 +227,8 @@ The method below shows the following
 
 ```python
 def dropwords():
-
      if len(list(set('MUG') - set("CONUNDRUM"))) is not 0:
          print(list(set('MUG') - set("CONUNDRUM")))
-dropwords()
 ```
 
 This was adapted into the code below. All of the words that contain valid letters for the anagram are kept and added to a cleanwordlist set and returned.
@@ -243,9 +241,17 @@ def dropwords(anagram, wordlist):
     for word in wordlist:
         if len(list(set(word) - set(letters))) is 0:
             cleanwordlist.add(word)
-
+            
     return cleanwordlist
 ```
+
+The following line is then called to turn the set into a list of sorted words, sorted by length. So words of length nine are at the top and words of length three are at the bottom
+
+```python
+dictionary = sorted(dictionary, key=len, reverse=True) 
+```
+
+
 
 ## Results
 
