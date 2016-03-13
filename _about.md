@@ -112,6 +112,11 @@ Using these rules, I supplied a dictionary with only words between 3 and 9 lette
 
 ## Solver
 
+Working on this section currently
+
+![Screenshot](http://puu.sh/nEzNw/d4035b4a79.png)
+![Screenshot](http://puu.sh/nEzMT/136cf9e206.png)
+
 The first thing I wanted to do was pull out all of the from the dictionary words that contain letters that aren't in the anagram. This was the second step to drastically reduce the search space when searching for anagrams.
 
 This aused sets to make things alot faster and easier. Words in Python parsed to sets are allowed to be subtracted from each other.
