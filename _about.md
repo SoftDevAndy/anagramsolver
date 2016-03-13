@@ -29,7 +29,7 @@ Add to your Python script a function to test your algorithm, which creates a ran
 * Project Plan
 * Words List
 * Preprocessing
-* Efficiency
+* Solver
 * Results
 * Summary/Reflection
 * References
@@ -110,7 +110,7 @@ We have global knowledge of our project. We know that we want to find
 
 Using these rules, I supplied a dictionary with only words between 3 and 9 letters inclusive. This was the first measure taken to reduce the search space. This reduced the amount of words. Carrying out this action as preprocessing or as part of the program would take away from our run time.
 
-### Efficiency - Solver
+## Solver
 
 The first thing I wanted to do was pull out all of the from the dictionary words that contain letters that aren't in the anagram. This was the second step to drastically reduce the search space when searching for anagrams.
 
