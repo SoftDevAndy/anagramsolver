@@ -85,9 +85,9 @@ def user_input():
 
 
 def random_input():
-    print("--------------")
-    print("Running solver.py")
-    print("--------------")
+    #print("--------------")
+    #print("Running solver.py")
+    #print("--------------")
 
     vowels = list("AEIOU")      # List of vowels
     consonants = list("BCDFGHJKLMNPQRSTVWXYZ")      # List of consonants
@@ -134,6 +134,7 @@ def reset():
     global anagramFound
     global dictionary
     global anagram
+    global iterations
 
     # Reset the globals for running the program again
 
@@ -141,19 +142,20 @@ def reset():
     anagramFound = False
     dictionary = set()
     anagram = ""
+    iterations = 0
 
 
 def main_program():
 
     # Calls the main program method
 
-    algorithm()
+    return algorithm()
 
 
 def preprocessing(anagram):
     global dictionary
 
-    print("Random Anagram: ", " ".join(anagram))
+    #print("Random Anagram: ", " ".join(anagram))
 
     dictionary = preproc.import_dictionaryfile("wordfile.txt")  # Importing the dictionary file
     dictionary = dropwords(anagram, dictionary)     # See the dropwords method
@@ -176,8 +178,8 @@ def algorithm():
 
     # NB at this point we know the dictionary is in descending order my length
 
-    print()
-    print("Size of dictionary with 9 letter words: ", len(tempdictionary))
+    #print()
+    #print("Size of dictionary with 9 letter words: ", len(tempdictionary))
 
     for word in tempdictionary:     # For each word in the wordlist dictionary
 
@@ -187,7 +189,7 @@ def algorithm():
 
             # If the word contains the same amount of matching letters as the anagram
 
-            print("\nFound a nine letter conundrum!")
+            #print("\nFound a nine letter conundrum!")
             wordfound = word
             break
 
@@ -199,7 +201,7 @@ def algorithm():
 
             tempdictionary.remove(word)
 
-    print("Size of dictionary with 9 letter words removed: ", len(tempdictionary))
+    #print("Size of dictionary with 9 letter words removed: ", len(tempdictionary))
 
     # Above gets 9 letter conundrum
     # -----------------------------
@@ -214,23 +216,46 @@ def algorithm():
             # If any letters are left over in the collections.Counter(word) it's not an anagram and returns true because there is information in the counter
             # Otherwise the counter is empty which means we have a valid anagram
 
-            print()
-            print("collections.Counter(word): ", collections.Counter(word))
-            print("collections.Counter(anagram): ", collections.Counter(anagram))
-            print("collections.Counter(word) - collections.Counter(anagram): ", collections.Counter(word) - collections.Counter(anagram))
+            #print()
+            #print("collections.Counter(word): ", collections.Counter(word))
+            #print("collections.Counter(anagram): ", collections.Counter(anagram))
+            #print("collections.Counter(word) - collections.Counter(anagram): ", collections.Counter(word) - collections.Counter(anagram))
             wordfound = word
             break
 
-    print()
+    #print()
+    #print("First word found: --> {} <-- word size {} ".format(wordfound.title(), len(wordfound)))
+    #print("\nTime: ", time.time() - t0)
+    #print("\nCount: ", count)
 
-    print("First word found: --> {} <-- word size {} ".format(wordfound.title(), len(wordfound)))
-
-    print("\nTime: ", time.time() - t0)
-
-    print("\nCount: ", count)
+    return {'Time': time.time() - t0}
 
 
 # Main Program
+
+
+def fullprogram():
+
+    global debug_mode
+    global anagramFound
+    global dictionary
+    global anagram
+
+    debug_mode = True
+    anagramFound = False
+
+    dictionary = set()
+    anagram = ""
+
+    # Input
+
+    anagram = random_input()
+    #anagram = user_input()
+
+    preprocessing(anagram)
+
+    return main_program()
+
 
 debug_mode = True
 anagramFound = False
@@ -238,12 +263,4 @@ anagramFound = False
 dictionary = set()
 anagram = ""
 
-# Input
-
-anagram = random_input()
-#anagram = user_input()
-
-preprocessing(anagram)
-
-main_program()
-
+fullprogram()
