@@ -167,6 +167,8 @@ def algorithm():
     global dictionary
     global anagram
 
+    tempdictionary = dictionary
+
     wordfound = "No word found"     # Default word
     count = 0
 
@@ -174,7 +176,10 @@ def algorithm():
 
     # NB at this point we know the dictionary is in descending order my length
 
-    for word in dictionary:     # For each word in the wordlist dictionary
+    print()
+    print("Size of dictionary with 9 letter words: ", len(tempdictionary))
+
+    for word in tempdictionary:     # For each word in the wordlist dictionary
 
         count += 1      # Increase the count, just for tracking the amount of iterations
 
@@ -188,11 +193,18 @@ def algorithm():
 
         if len(word) != 9:  # Once you reach
             break
+        else:
+
+            # The word isn't a 9 letter anagram so remove it from the dictionary
+
+            tempdictionary.remove(word)
+
+    print("Size of dictionary with 9 letter words removed: ", len(tempdictionary))
 
     # Above gets 9 letter conundrum
     # -----------------------------
 
-    for word in dictionary:
+    for word in tempdictionary:
 
         count += 1
 
