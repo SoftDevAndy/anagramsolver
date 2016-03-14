@@ -8,11 +8,13 @@
 import matplotlib.pyplot as plt
 import solver
 
+testcount = 50
+
 count = 1
 iterations = []
 time = []
 
-while count < 10:
+while count < testcount:
 
     kv = solver.fullprogram()
 

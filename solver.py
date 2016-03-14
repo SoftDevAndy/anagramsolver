@@ -130,7 +130,6 @@ def random_input():
 
 
 def reset():
-    global debug_mode
     global anagramFound
     global dictionary
     global anagram
@@ -138,7 +137,6 @@ def reset():
 
     # Reset the globals for running the program again
 
-    debug_mode = True
     anagramFound = False
     dictionary = set()
     anagram = ""
@@ -236,12 +234,10 @@ def algorithm():
 
 def fullprogram():
 
-    global debug_mode
     global anagramFound
     global dictionary
     global anagram
 
-    debug_mode = True
     anagramFound = False
 
     dictionary = set()
@@ -256,11 +252,5 @@ def fullprogram():
 
     return main_program()
 
-
-debug_mode = True
-anagramFound = False
-
-dictionary = set()
-anagram = ""
 
 fullprogram()
