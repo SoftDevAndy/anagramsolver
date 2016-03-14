@@ -320,7 +320,61 @@ def algorithm():
     return {'Time': time.time() - t0}
 ```
 
-**Write up about the use of https://docs.python.org/2/library/collections.html**
+There is two stages to this algorithm.
+
+**The first stage involves iterating through all the words in the word dictionary.**
+
+Using collections.Counter which is a specialized container datatype. You can pass in a word and the container will hold key value pairings for the letters in the word. So using collections.Counter("test") would return Counter({'t': 2, 's': 1, 'e': 1}) . It counts very quickly the number of occurances of each individual letter. Using this I check is the anagram given randomly or by the user is identical in letter count to the word it's a valid nine letter conundrum. 
+
+```python
+if collections.Counter(word) == collections.Counter(anagram):
+``` 
+
+```python
+import collections
+
+print(collections.Counter("test"))
+print(collections.Counter("sett"))
+
+#Counter({'t': 2, 's': 1, 'e': 1}) Both results return the same and ordered
+#Counter({'t': 2, 's': 1, 'e': 1}) Both results return the same and ordered
+```
+
+Each time a word fails this check it gets removed from the dictionary, if it passes this check the whole algorithm stops and the word is returned and printed to screen. This first iteration of the dictionary runs for aslong as the words are exactly nine in length.
+
+**The second stage of the algorithm**
+
+The second stage runs through the remaining dictionary after the words of length nine were removed
+
+The important line of the second part of the algorithm is as follows
+
+```python
+if not collections.Counter(word) - collections.Counter(anagram):
+```
+
+This line takes care of alot of things. It lets you take all the valid letters from the word supplied.
+
+* If any letters are left over the word can't be used and you can skip to the next word
+* A word containing the same unique letters but the wrong amount of them won't be used and you can skip to the next word
+* If nothing is returned (Counter() an empty Counter container) then the word contains the same letters and same amount of letters as in the anagram, meaning the word is an anagram of the anagram. Below clearly shows how all of this works.
+
+```python
+import collections
+
+print(collections.Counter("TEASE") - collections.Counter("TASTE")) # Too many E's 
+print(collections.Counter("EATS") - collections.Counter("TASTE")) # Same amount of unique letters
+
+#Counter({'E': 1})
+#Counter()
+```
+
+If the empty counter container is returned the algorithm breaks and returns the word immediately and prints it out. This is when the program ends.
+
+The empty counter container is caught by using
+
+```python
+if not
+```
 
 ## Results
 
