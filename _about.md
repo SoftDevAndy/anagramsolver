@@ -57,7 +57,7 @@ Add to your Python script a function to test your algorithm, which creates a ran
 
 ## Running the Program
 
-Download the entire gist including the s**olver**, **preproc** and make sure to download the external [wordlist](https://dl.dropboxusercontent.com/u/75064039/wordfile.txt) . Make sure the wordfile.txt is in the same directory as both the **solver** and **preprocy** and then run **solver**.
+Download the entire gist including the **solver**, **preproc** and make sure to download the external [wordlist](https://dl.dropboxusercontent.com/u/75064039/wordfile.txt) . Make sure the wordfile.txt is in the same directory as both the **solver** and **preprocy** and then run **solver**.
 
 If you wish to run your own timing test of the program run **compare** and make sure it's in the same directory as the other files.
 
