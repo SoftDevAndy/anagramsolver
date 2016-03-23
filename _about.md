@@ -12,7 +12,7 @@ A python script that solves the Countdown letters game
 
 A document explaining how your solver works.
 
-The Countdown letters game is as detailed on Wikipedia. Esentially, you are given a list of nine random letters which contains at least three vowels and four consonants. You must find the longest possible word in the Oxford English dictionary that is an anagram of some or all of the letters in the random list. If there is more than one word of longest length, then each is as acceptable a solution as the others.
+The Countdown letters game is as detailed on Wikipedia. Essentially, you are given a list of nine random letters which contains at least three vowels and four consonants. You must find the longest possible word in the Oxford English dictionary that is an anagram of some or all of the letters in the random list. If there is more than one word of longest length, then each is an acceptable solution.
 
 **Instructions**
 
@@ -79,17 +79,17 @@ All of the words must contain
 * Must be uppercase to make parsing easier
 * Must not contain proper nouns
 
-From sources listed below I built up a large dictionary full of words with special characters,numbers and plenty of other stuff to be filtered out. Reading through it, it contained quite alot of names aswell so I took this issue into account.
+From sources listed below I built up a large dictionary full of words with special characters,numbers and plenty of other stuff to be filtered out. Reading through the list, there were many names that were also included as 'words' and so I accounted for this issue.
 
 Next I gathered proper nouns from the sources below and combined them all together to make a file that would be used to filter out proper nouns from the dictionary that was to be built. This involved days of the week,months,countries and capitals etc. Added to this were common male and female names. All of these sources had to be filtered.
 
-There was many steps in creating the dictionary and below details the steps taken and scripts created and used.
+There were many steps in creating the dictionary. Below details the steps taken, scripts created and used.
 
 ## How the wordlist.txt was built
 
-**For the main dictionary**
+**Steps taken for the main dictionary**
 
-* Created a webscraper to download 3000ish commond oxford words [using this script](https://gist.github.com/AndyDev2013/fe94b562fef4dd14ba03) that I made 
+* I created a webscraper to download 3000ish commond oxford words [using this script](https://gist.github.com/AndyDev2013/fe94b562fef4dd14ba03) that I made 
 
 Combined multiple dictionaries from sources including the 
 * [Oxford3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/)
@@ -100,12 +100,12 @@ All three sources combined contained names, proper nouns and words with special 
  
 **For the black list dictionary**
 
-* Created a list of male and female names, formatted them using a [using this script](https://gist.github.com/AndyDev2013/d76cdaa3ccda9cc63194) that I made then combined this clean list of names with the  black list dictionary
+* Created a list of male and female names, formatted them using a [using this script](https://gist.github.com/AndyDev2013/d76cdaa3ccda9cc63194) that I created then combined this clean list of names with the  black list dictionary
 * Added countries, capitals, days of the week and seasons to the black list dictionary
-* Imported the main dictionary and black list dictionary file and filted out the nouns into a cleaner dictionary [using this script](https://gist.github.com/AndyDev2013/d0e7b1672688a8abe26e) that I made
+* Imported the main dictionary and black list dictionary file and filted out the nouns into a cleaner dictionary [using this script](https://gist.github.com/AndyDev2013/d0e7b1672688a8abe26e) that I created
 * Finally the cleaner dictionary is put through [this script](https://gist.github.com/AndyDev2013/d4acb614edc83e5763d9) that I made to drop all words with special characters, larger then 9 letters and other criteria that reduces the size of the dictionary
 
-The wordlist dictionary, even at around 1mb takes a lot of time to render as a gist in Chrome and IE so I attached it externally as a dropbox link. The other thing I would like to say about the dictionary is that there was an attempt to remove proper nouns, but not all of them won't be removed but the majority of names and the obvious ones will have been removed using the scripts above. In other words the dictionary isn't perfect but a lot of effort was put in to reduce erroneous words.
+The wordlist dictionary, even at around 1mb takes a lot of time to render as a gist in Chrome and IE so I attached it externally as a dropbox link. I would like to add that there was an attempt made to remove proper nouns from the Dictionary.  A majority of names and obvious errors will be removed by using the scripts above, however not all of them will be taken out.  In other words the dictionary is not perfect, but a great amount of effort was put in to reduce erroneous words.
 
 The final word file holds roughly **110k** at just under **1mb** words.
 
@@ -113,7 +113,7 @@ The final word file holds roughly **110k** at just under **1mb** words.
 
 ## Preprocessing
 
-All of the preprocessing was removed from the project except for the need of reading in the dictionary once from file. The clean dictionary is read in and the size of it is reduced on the fly to keep things as fast as possible. 
+All of the pre-processing was removed from the project, the exception being for the need of reading in the dictionary once from (the?) file. The clean dictionary is read in and the size of it is reduced on the fly to keep things as fast as possible. 
 
 We have global knowledge of our project. We know that we want to find 
 
@@ -130,7 +130,7 @@ Using these rules, I supplied a dictionary with only words between 3 and 9 lette
 
 * Take user input with a valid anagram or generate a random valid anagram
 * Import the words file into a set, drop all words from the set that don't contain letters in the anagram 
-* This set is sorted descending in orderby length and returned as a sorted list
+* This set is sorted descending by word length and returned as a sorted list
 * Run through all the words of length nine and check if it's a conundrum, remove them from the list one by one, if the word matches stop and print it out to screen
 * Otherwise check the rest of the list
 
@@ -154,7 +154,7 @@ def import_dictionaryfile(file_name):
     return wordlist
 ```
 
-Next depending on wether you've commented the input line out or not. You'll enter the anagram which must meet the requirements of having 9 letters exactly and this word much include 4 consonants and 3 vowels and 2 more letters of your choice. Below is the code for the user input code
+Next depending on whether you've commented the input line out or not. You'll enter the anagram which must meet the requirements of having 9 letters exactly and this word much include 4 consonants and 3 vowels and 2 more letters of your choice. Below is the code for the user input code
 
 ```python
 def user_input():
@@ -224,7 +224,7 @@ def random_input():
 
 Once the input is given we can use the letters to drop words from the dictionary that contain the same letters.
 
-The first thing I wanted to do was pull out all of the words from the dictionary words that contain letters that aren't in the anagram. This was the second step to drastically reduce the search space when searching for anagrams.
+The first thing I wanted to do was to remove all of the words from the dictionary, that contain letters that aren't in the anagram. This was the second step to drastically reduce the search space when searching for anagrams.
 
 Words in Python parsed to sets are allowed to be subtracted from each other, This operation is pretty quick and can be used to tell if a word contains the same letters in the anagram, but it doesn't account for duplicates (I account for this later).
 
@@ -364,7 +364,7 @@ The important line of the second part of the algorithm is as follows
 if not collections.Counter(word) - collections.Counter(anagram):
 ```
 
-This line takes care of alot of things. It lets you take all the valid letters from the word supplied.
+This line takes care of many things. It lets you take all the valid letters from the word supplied.
 
 * If any letters are left over the word can't be used and you can skip to the next word
 * A word containing the same unique letters but the wrong amount of them won't be used and you can skip to the next word
@@ -380,9 +380,9 @@ print(collections.Counter("EATS") - collections.Counter("TASTE")) # Same amount 
 #Counter()
 ```
 
-If the empty counter container is returned the algorithm breaks and returns the word immediately and prints it out. This is when the program ends.
+If the empty counter container is returned the algorithm breaks, returns the word immediately and prints it out. This is when the program ends.
 
-The empty counter container is caught by using
+The empty counter container is caught by using the below if not statement
 
 ```python
 if not
@@ -407,7 +407,7 @@ The only issue that came up when using Gists was storing the dictionary files as
 
 ### Using Python
 
-Python was used for everything in this project. The creation of the dictionary, the webscraper and the charting later. Python was very handy and perfect for creating small powerful scripts that were quick to put together and get the task done. Alot of the programming was done in Sublime Text and then later in PyCharm. I had the latest version of 3.5 installed which restricted me a litle when I later wanted to create some graphs of the running time. Other then certain libraries and packages not being available for the most upto date version (understandable) of Python there was no issues.
+Python was used for everything in this project. The creation of the dictionary, the webscraper and the charting later. Python was very handy and perfect for creating small powerful scripts that were quick to put together and get the task done. The majority of the programming was done in Sublime Text and then later in PyCharm. I had the latest version of 3.5 installed which restricted me a litle when I later wanted to create some graphs of the running time. Other then certain libraries and packages not being available for the most upto date version (understandable) of Python there were no issues.
 
 ### Scrapped Permutations
 
@@ -452,7 +452,7 @@ recursive(words, "", given_word)
 *One of the main reasons for using a set was because of the following.*
 If a word with 2 repeating letters was used, for example _conundrum_. Conundrum contains two n's and two u's. The recursive method doesn't account for duplicates, it will generate them anyways. But the set only allows unique words. The more repeating letters, the less permutations.
 
-I tried initially to create a method that checked if the word already existed in the array(when I tried using an array) but this got very slow. The more words that get added to the array, the longer the look ups take and in big O notation this is one of the worst cases. Searching through a growing space,requires more time and both of these times increase. Examples of this will be in the efficency section.
+I tried initially to create a method that checked if the word already existed in the array(when I tried using an array) but this was very slow. The more words that get added to the array, the longer the look ups take and in big O notation this is one of the worst cases. Searching through a growing space,requires more time and both of these times increase. Examples of this will be in the efficency section.
 
 Using a set was a more elegant solution, it catches the duplicates when they are generated. This helps drastically reduce the search space *IF* the word contains letters that aren't highly used. [This site](http://www.oxforddictionaries.com/words/which-letters-are-used-most) shows the letter frequency. As you can see U C and M are lower in frequency so this kind of filtering for a word like CONUNDRUM would reduce the search space by alot. 
 
