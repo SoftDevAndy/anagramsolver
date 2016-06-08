@@ -94,7 +94,7 @@ There were many steps in creating the dictionary. Below details the steps taken,
 
 **Steps taken for the main dictionary**
 
-* I created a webscraper to download 3000ish commond oxford words [using this script](https://gist.github.com/AndyDev2013/fe94b562fef4dd14ba03) that I made 
+* I created a webscraper to download 3000ish common oxford words [using this script](https://gist.github.com/AndyDev2013/fe94b562fef4dd14ba03) that I made 
 
 Combined multiple dictionaries from sources including the 
 * [Oxford3000](http://www.oxfordlearnersdictionaries.com/wordlist/english/oxford3000/)
