@@ -24,11 +24,6 @@ Write a README file (called _about.md in above gist) about your script.
 
 Add to your Python script a function to test your algorithm, which creates a random list of nine letters as they would be generated in Countdown.
 
-**Extras**
-
-Test a modified version of this project, live, on a flask server [Link](http://devandy.pythonanywhere.com/)
-![Webbapp Image](http://puu.sh/oHntX/e246d23ac4.jpg)
-
 # Contents
 
 * Project Plan
