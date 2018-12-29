@@ -394,9 +394,6 @@ if not
 
 Both tests resulted in the same time of less then 0.001 of a second. Timing programs that end up being around this time scale can be effected by other processes running on the computer
 
-![Screenshot](http://puu.sh/nEzNw/d4035b4a79.png)
-![Screenshot](http://puu.sh/nEzMT/136cf9e206.png)
-
 ## Summary/Reflection
 
 ### Gists
